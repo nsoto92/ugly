@@ -4,14 +4,11 @@ import { UglyContext } from '../UglyContext'
 
 export default function Display(props) {
     const { data, setData } = useContext(UglyContext)
-    const id = props._id
+
     console.log('Data: ', data)
 
     const deleteData = (id) => {
         axios.delete(`https://api.vschool.io/norbert/thing/${id}`)
-        useEffect(() => {
-
-        })
     }
 
 
