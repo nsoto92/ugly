@@ -17,13 +17,16 @@ class UglyContextProvider extends Component {
             .catch((err) => console.log(err))
     }
 
-    componentDidMount() {
-        this.setData()
+    deleteData = (id) => {
+        axios.delete(`https://api.vschool.io/norbert/thing/${id}`)
+            .then(() => {
+                window.location.reload()
+            })
     }
 
     render() {
         return (
-            <UglyContext.Provider value={{ data: this.state.data, setData: this.setData }}>
+            <UglyContext.Provider value={{ data: this.state.data, setData: this.setData, deleteData: this.deleteData }}>
                 {this.props.children}
             </UglyContext.Provider>
         )
